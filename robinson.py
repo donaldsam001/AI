@@ -89,14 +89,38 @@ def robinson_algorithm(clauses):
 # b             <=> b
 # KL: d         => Phủ định KL: ~d
 
+# initial_clauses = [
+#     {'p'}, # 1
+#     {'~u'}, # 2
+#     {'~p', 'q'},             # 3
+#     {'~q', 'r'},             # 4
+#     {'~r', 's'},             # 5
+#     {'~u', '~s'}
+# ]
+
 initial_clauses = [
-    {'p'}, # 1
-    {'~u'}, # 2
-    {'~p', 'q'},             # 3
-    {'~q', 'r'},             # 4
-    {'~r', 's'},             # 5
-    {'~u', '~s'}
+    {'~a', '~b'},       # Phủ định kết luận
+    {'b'},
+    {'~c'},
+    {'~a'},        # GT2
+    {'~b', 'c'}    # Từ GT1 (b V c)
 ]
+
+# initial_clauses = [
+#     {'~c'},       # Phủ định kết luận
+#     {'a'},        # GT2
+#     {'a', 'c'},   # Từ GT1 (a V c)
+#     {'b', 'c'}    # Từ GT1 (b V c)
+# ]
+
+# bai 5
+# initial_clauses = [
+#     {'~c'},       # Phủ định kết luận
+#     {'a'},        # GT2
+#     {'~a', 'b'},   # Từ GT1 (~a V b)
+#     {'~a', 'c'}    # Từ GT1 (~a V c)
+# ]
+
 
 if __name__ == "__main__":
     robinson_algorithm(initial_clauses)

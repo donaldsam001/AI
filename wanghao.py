@@ -145,17 +145,33 @@ def solve_wang_hao(initial_VT, initial_VP):
 # KHỞI TẠO BÀI TOÁN - VÍ DỤ 1
 # ==========================================
 if __name__ == "__main__":
-    r = Var('r')
-    u = Var('u')
-    q = Var('q')
-    p = Var('p')
-    s = Var('s')
+    # r = Var('r')
+    # u = Var('u')
+    # q = Var('q')
+    # p = Var('p')
+    # s = Var('s')
 
-    # Theo Ví dụ 1:
-    # VT = { ¬r ∨ u ; ¬u ∨ w ; r ∨ w }
-    # VP = { w }
-    VT = [~p | q, ~q | r, ~r | s, ~u | ~s]
-    VP = [~p, u]
+    # # Theo Ví dụ 1:
+    # # VT = { ¬r ∨ u ; ¬u ∨ w ; r ∨ w }
+    # # VP = { w }
+    # VT = [~p | q, ~q | r, ~r | s, ~u | ~s]
+    # VP = [~p, u]
+
+    a = Var('a')
+    b = Var('b')
+    c = Var('c')
+
+    # bai 3
+    VT = [~a , ~b | c]
+    VP = [a & b , ~b , c]
+
+    # # bai 4
+    # VT = [(a & b) | c, a] 
+    # VP = [c]
+    
+    # VT = [a, ~a | b, ~a |c]
+    # VP = [c]
+
 
     print("--- TRUY VẾT THUẬT TOÁN VƯƠNG HẠO ---")
     solve_wang_hao(VT, VP)
