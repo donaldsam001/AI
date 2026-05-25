@@ -1,17 +1,24 @@
 from sympy import symbols, Implies, And, Or, Not, to_cnf
 
 # 1. Khai báo các ký hiệu
-a, b, c, d, f, g, h, i = symbols('a b c d f g h i')
+a, b, c, d, f, g, h, i, o , m, e= symbols('a b c d f g h i o m e')
 
 # 2. Tập hợp các biểu thức gốc từ Screenshot 2026-05-08 110058.png
 expressions = [
-    And(a, c),                          # a ^ c (Đây là sự kiện/facts)
-    Implies(a, Implies(b, f)),          # a -> (b -> f)
-    Implies(And(Or(d, b), f), i),       # (d v b) ^ f -> i
-    Or(Not(h), Not(a), f),              # ~h v ~a v f
-    Implies(And(f, g, h), i),           # f ^ g ^ h -> i
-    Or(Not(a), d, Not(c)),              # ~a v d v ~c
-    Implies(And(a, d),And(g, h))                     # g ^ h (Đây là sự kiện/facts)
+    # And(a, c),                          # a ^ c (Đây là sự kiện/facts)
+    # Implies(a, Implies(b, f)),          # a -> (b -> f)
+    # Implies(And(Or(d, b), f), i),       # (d v b) ^ f -> i
+    # Or(Not(h), Not(a), f),              # ~h v ~a v f
+    # Implies(And(f, g, h), i),           # f ^ g ^ h -> i
+    # Or(Not(a), d, Not(c)),              # ~a v d v ~c
+    # Implies(And(a, d),And(g, h))                     # g ^ h (Đây là sự kiện/facts)
+    And (a,c),
+    Implies(And(a,b), And(c,o)),
+    Or(Not(a), d, Not(h)),
+    Or(Not(a), Not(d), m),
+    Or(Not(b), Not(c), e),
+    Implies(o, Implies(e, m))
+
 ]
 
 def extract_rules(expr_list):

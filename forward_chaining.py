@@ -43,16 +43,25 @@ def suy_dien_tien(GT, RULE, KL):
 # --- Chạy ví dụ từ Screenshot 2026-05-08 102529.png ---
 
 # Tập các luật: mỗi luật gồm ([vế trái], vế phải)
+# rules = [
+#     (['a'], 'c'), # r1: a ^ b -> c
+#     (['b'], 'd'),  # r2: b ^ c -> d
+#     (['c'], 'e'),
+#     (['b', 'c'], 'f'),
+#     (['e', 'f'], 'g')
+# ]
+
 rules = [
-    (['a'], 'c'), # r1: a ^ b -> c
-    (['b'], 'd'),  # r2: b ^ c -> d
-    (['c'], 'e'),
-    (['b', 'c'], 'f'),
-    (['e', 'f'], 'g')
+    (['a', 'b'], 'c'),
+    (['a', 'b'], 'o'),
+    (['a', 'h'], 'd'),
+    (['a', 'd'], 'm'),
+    (['b', 'c'], 'e'),
+    (['e', 'o'], 'm'),
 ]
 
 gia_thiet = ['a', 'b']
-ket_luan = 'g'
+ket_luan = 'm'
 
 ket_qua = suy_dien_tien(gia_thiet, rules, ket_luan)
 print(f"\nKết quả cuối cùng: {ket_qua}")
